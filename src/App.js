@@ -20,18 +20,40 @@ function findGetParameter(parameterName) {
 function App() {
 
   const [ token, setToken ] = useState("")
+  const [ flag, setFlag ] = useState(1)
+  const [ name, setName ] = useState("")
+  const [  ]
 
   useEffect(() => {
     let a = findGetParameter('code')
     setToken(a)
     if (a!==null) {localStorage.setItem('code', a); console.log(a)}
-    console.log(localStorage.getItem('code'))
+    let code = localStorage.getItem('code');
+    console.log(code)
+    /*
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+    };
+    
+    fetch(`http://45.134.255.154:30714/get_info?code=${code}`, requestOptions)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          setFlag(1);
+        })
+      */
   }, [])
+
+  useEffect(() => {
+    // GET request using fetch inside useEffect React hook
+    }, []);
 
   return (
     <div className="App">
-      <MyAppBar />
-      <Dashboard />
+      { flag && <MyAppBar />}
+      { flag && <Dashboard />}
+      { !flag && <h2>Loading...</h2>}
     </div>
   );
 }

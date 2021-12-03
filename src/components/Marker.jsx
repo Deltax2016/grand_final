@@ -43,7 +43,6 @@ export default function Marker(props) {
       <CardContent>
         <Box
           sx={{
-            marginTop: 2,
             height: Math.round(positive*340),
             bgcolor: 'green',
             '&:hover': {
