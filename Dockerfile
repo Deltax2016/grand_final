@@ -1,14 +1,19 @@
-FROM python:3.9
+FROM node:13.12.0-alpine
 
-WORKDIR /code
+# set working directory
+WORKDIR /app
 
-COPY ./requirements.txt /code/requirements.txt
+# add `/app/node_modules/.bin` to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
 
-COPY ./data /code/data
-COPY ./tmp /code/tmp
+# install app dependencies
+COPY package.json ./
+COPY package-lock.json ./
+RUN npm install --silent
+RUN npm install react-scripts@3.4.1 -g --silent
 
-RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+# add app
+COPY . ./
 
-COPY ./app /code/app
-
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# start app
+CMD ["npm", "start"]
