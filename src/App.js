@@ -22,9 +22,10 @@ function App() {
   const [ token, setToken ] = useState("")
 
   useEffect(() => {
-    let a = findGetParameter('token')
+    let a = findGetParameter('code')
     setToken(a)
-    console.log(a)
+    if (a!==null) {localStorage.setItem('code', a); console.log(a)}
+    console.log(localStorage.getItem('code'))
   }, [])
 
   return (

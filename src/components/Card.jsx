@@ -38,7 +38,7 @@ export default function MyCard() {
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
+            O
           </Avatar>
         }
         action={
