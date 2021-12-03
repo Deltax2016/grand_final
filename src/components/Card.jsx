@@ -47,7 +47,6 @@ export default function MyCard() {
           </IconButton>
         }
         title="Ovechkeen"
-        subheader="Birthdate"
       />
       <CardMedia
         component="img"

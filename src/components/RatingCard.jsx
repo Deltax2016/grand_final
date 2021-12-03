@@ -37,16 +37,6 @@ export default function RatingCard() {
   return (
     <Card sx={{ maxWidth: 450, margin: 2 }}>
       <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            O
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
         title="Ассоциируемые слова"
       />
       <CardMedia
