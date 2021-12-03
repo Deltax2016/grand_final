@@ -14,6 +14,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import MyRating from './Rating'
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -26,7 +27,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function MyCard() {
+export default function RatingCard() {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -46,8 +47,7 @@ export default function MyCard() {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Ovechkeen"
-        subheader="Birthdate"
+        title="Ассоциируемые слова"
       />
       <CardMedia
         component="img"
@@ -56,29 +56,8 @@ export default function MyCard() {
         alt="Paella dish"
       />
       <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          Знаменитый хоккеист
-        </Typography>
+        <MyRating />
       </CardContent>
-      <CardActions disableSpacing>
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </ExpandMore>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>Method:</Typography>
-          <Typography paragraph>
-            Heat 1/2 cup of the broth in a pot until simmering, add saffron and set
-            aside for 10 minutes.
-          </Typography>
-        </CardContent>
-      </Collapse>
     </Card>
   );
 }
