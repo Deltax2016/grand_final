@@ -1,14 +1,11 @@
-FROM python:3.9
+FROM node:14.8.0-stretch as build
+RUN mkdir /app
+COPY . /app
+WORKDIR /app
+RUN npm install \
+    && npm run-script build \
+    && ls -l
 
-WORKDIR /code
-
-COPY ./requirements.txt /code/requirements.txt
-
-COPY ./data /code/data
-COPY ./tmp /code/tmp
-
-RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
-
-COPY ./app /code/app
-
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Final stage for creating the final Docker image
+FROM nginx:1.19-alpine as final
+COPY --from=build /app/build/ /var/www/html
