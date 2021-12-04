@@ -34,7 +34,7 @@ export default function SuperCard(props) {
   return (
     <Card sx={{ maxWidth: 800, margin: 4, backgroundColor: '#F5F5F5' }}>
       <CardHeader
-        title="Ассоциируемые слова"
+        title="Темы"
       />
       <CardMedia
         component="img"
