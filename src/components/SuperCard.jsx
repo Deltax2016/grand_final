@@ -32,14 +32,14 @@ export default function SuperCard(props) {
   const { image } = props;
 
   return (
-    <Card sx={{ maxWidth: 800, margin: 2, backgroundColor: '#F5F5F5' }}>
+    <Card sx={{ maxWidth: 800, margin: 4, backgroundColor: '#F5F5F5' }}>
       <CardHeader
         title="Ассоциируемые слова"
       />
       <CardMedia
         component="img"
         src={`data:image/png;base64, ${image}`}
-        alt="Paella dish"
+        alt="Image"
       />
     </Card>
   );

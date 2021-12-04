@@ -38,7 +38,7 @@ export default function Marker(props) {
   };
 
   return (
-    <Card sx={{ maxWidth: 450, height: 520, margin: 2, backgroundColor: '#F5F5F5' }}>
+    <Card sx={{ maxWidth: 450, height: 520, marginTop: 12, backgroundColor: '#F5F5F5' }}>
       <CardHeader
         title="Тональность новостей"
       />
@@ -54,7 +54,7 @@ export default function Marker(props) {
           }}
         >
         <Typography >Позитивные</Typography>
-        <Typography >{`${positive*100}%`}</Typography>
+        <Typography >{`${Math.round(positive*100)}%`}</Typography>
         </Box>
           <Box
           sx={{
@@ -67,7 +67,7 @@ export default function Marker(props) {
           }}
         >
         <Typography >Нейтральные</Typography>
-        <Typography >{`${neutral*100}%`}</Typography>
+        <Typography >{`${Math.round(neutral*100)}%`}</Typography>
         </Box>
         <Box
           sx={{
@@ -80,7 +80,7 @@ export default function Marker(props) {
           }}
         >
         <Typography >Негативные</Typography>
-        <Typography >{`${negative*100}%`}</Typography>
+        <Typography >{`${Math.round(negative*100)}%`}</Typography>
         </Box>
       </CardContent>
     </Card>

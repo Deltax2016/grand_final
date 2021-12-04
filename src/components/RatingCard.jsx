@@ -40,7 +40,7 @@ export default function RatingCard(props) {
   };
 
   return (
-    <Card sx={{ maxWidth: 450, height: 520, margin: 2, backgroundColor: '#F5F5F5' }}>
+    <Card sx={{ maxWidth: 450, height: 520, marginTop: 12, marginLeft: 1, backgroundColor: '#F5F5F5' }}>
       <CardHeader
         title="Ассоциируемые слова"
       />
