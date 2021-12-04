@@ -26,7 +26,9 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function MyCard() {
+export default function MyCard(props) {
+
+  const { name, birthdate, image, mobile } = props;
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -34,31 +36,21 @@ export default function MyCard() {
   };
 
   return (
-    <Card sx={{ maxWidth: 450, margin: 2 }}>
+    <Card sx={{ maxWidth: 450, height: 520, margin: 2, backgroundColor: '#F5F5F5' }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            O
+            {name.slice(0,1)}
           </Avatar>
         }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title="Ovechkeen"
+        title={`${name}`}
       />
       <CardMedia
         component="img"
         height="300"
-        image="/2.jpg"
-        alt="Paella dish"
+        src={`data:image/png;base64, ${image}`}
+        alt="Photo"
       />
-      <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          Знаменитый хоккеист
-        </Typography>
-      </CardContent>
       <CardActions disableSpacing>
         <ExpandMore
           expand={expanded}
@@ -71,10 +63,12 @@ export default function MyCard() {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>Method:</Typography>
+          <Typography paragraph>Подробная информация:</Typography>
           <Typography paragraph>
-            Heat 1/2 cup of the broth in a pot until simmering, add saffron and set
-            aside for 10 minutes.
+            {`Телефон: ${mobile}`}
+          </Typography>
+          <Typography paragraph>
+            {`Дата рождения: ${birthdate}`}
           </Typography>
         </CardContent>
       </Collapse>

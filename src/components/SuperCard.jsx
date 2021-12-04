@@ -27,20 +27,12 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function RatingCard(props) {
+export default function SuperCard(props) {
 
-  const { image, negative } = props;
-
-  var rat = Math.round((1-negative)*10)/2
-  console.log(rat, negative)
-  const [expanded, setExpanded] = React.useState(false);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+  const { image } = props;
 
   return (
-    <Card sx={{ maxWidth: 450, height: 520, margin: 2, backgroundColor: '#F5F5F5' }}>
+    <Card sx={{ maxWidth: 800, margin: 2, backgroundColor: '#F5F5F5' }}>
       <CardHeader
         title="Ассоциируемые слова"
       />
@@ -49,9 +41,6 @@ export default function RatingCard(props) {
         src={`data:image/png;base64, ${image}`}
         alt="Paella dish"
       />
-      <CardContent>
-        <MyRating rating={rat}/>
-      </CardContent>
     </Card>
   );
 }

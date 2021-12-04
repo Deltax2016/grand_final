@@ -31,12 +31,14 @@ export default function Marker(props) {
   const { positive, neutral, negative } = props;
   const [expanded, setExpanded] = React.useState(false);
 
+  console.log(positive, neutral, negative)
+
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
   return (
-    <Card sx={{ maxWidth: 450, margin: 2 }}>
+    <Card sx={{ maxWidth: 450, height: 520, margin: 2, backgroundColor: '#F5F5F5' }}>
       <CardHeader
         title="Тональность новостей"
       />
@@ -44,33 +46,42 @@ export default function Marker(props) {
         <Box
           sx={{
             height: Math.round(positive*340),
-            bgcolor: 'green',
+            bgcolor: '#B2EA70',
             '&:hover': {
-              backgroundColor: 'green',
+              backgroundColor: '#B2EA70',
               opacity: [0.9, 0.8, 0.7],
             },
           }}
-          />
+        >
+        <Typography >Позитивные</Typography>
+        <Typography >{`${positive*100}%`}</Typography>
+        </Box>
           <Box
           sx={{
             height: Math.round(neutral*340),
-            bgcolor: 'yellow',
+            bgcolor: '#FBD148',
             '&:hover': {
-              backgroundColor: 'yellow',
+              backgroundColor: '#FBD148',
               opacity: [0.9, 0.8, 0.7],
             },
           }}
-        />
+        >
+        <Typography >Нейтральные</Typography>
+        <Typography >{`${neutral*100}%`}</Typography>
+        </Box>
         <Box
           sx={{
             height: Math.round(negative*340),
-            bgcolor: 'red',
+            bgcolor: '#C85C5C',
             '&:hover': {
-              backgroundColor: 'red',
+              backgroundColor: '#C85C5C',
               opacity: [0.9, 0.8, 0.7],
             },
           }}
-        />
+        >
+        <Typography >Негативные</Typography>
+        <Typography >{`${negative*100}%`}</Typography>
+        </Box>
       </CardContent>
     </Card>
   );

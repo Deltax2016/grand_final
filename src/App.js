@@ -20,39 +20,58 @@ function findGetParameter(parameterName) {
 function App() {
 
   const [ token, setToken ] = useState("")
-  const [ flag, setFlag ] = useState(1)
-  const [ name, setName ] = useState("")
-  const [  ]
+  const [ flag, setFlag ] = useState(0)
+  const [ ready, setReady ] = useState(0)
+  const [ textData, setTextData ] = useState({})
 
   useEffect(() => {
     let a = findGetParameter('code')
-    setToken(a)
-    if (a!==null) {localStorage.setItem('code', a); console.log(a)}
-    let code = localStorage.getItem('code');
-    console.log(code)
-    /*
-    const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-    };
+
+    if (!ready) {
+
+      const requestOptions = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+      };
+
+      fetch(`https://bec2-2a04-ac00-4-b655-5054-ff-fe02-8dbf.ngrok.io/get_token?code=${a}`, requestOptions)
+          .then(response => response.json())
+          .then(data => {
+            console.log(data);
+            setReady(1);
+            if (data.token !== "error") localStorage.setItem('code', data.token)
+          })
+    }
+
     
-    fetch(`http://45.134.255.154:30714/get_info?code=${code}`, requestOptions)
-        .then(response => response.json())
-        .then(data => {
-          console.log(data);
-          setFlag(1);
-        })
-      */
   }, [])
 
   useEffect(() => {
-    // GET request using fetch inside useEffect React hook
-    }, []);
+    if (ready) {
+      let code = localStorage.getItem('code');
+
+      const requestOptions = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+      };
+      
+      fetch(`https://bec2-2a04-ac00-4-b655-5054-ff-fe02-8dbf.ngrok.io/get_info?token=${code}`, requestOptions)
+          .then(response => response.json())
+          .then(data => {
+            console.log(data);
+            setFlag(1);
+            setTextData(data)
+        })
+    }
+  },[ready])
+
+
+
 
   return (
     <div className="App">
-      { flag && <MyAppBar />}
-      { flag && <Dashboard />}
+      <MyAppBar img={textData.image_user}/>
+      { flag ? <Dashboard data={textData}/> : <div></div>}
       { !flag && <h2>Loading...</h2>}
     </div>
   );

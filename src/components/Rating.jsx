@@ -15,7 +15,11 @@ const StyledRating = styled(Rating)({
   },
 });
 
-export default function MyRating() {
+export default function MyRating(props) {
+
+  const { rating } = props;
+
+  console.log(rating)
   return (
     <Box
       sx={{
@@ -27,6 +31,7 @@ export default function MyRating() {
         name="customized-color"
         readOnly
         defaultValue={2}
+        value={rating}
         precision={0.5}
         icon={<FavoriteIcon fontSize="inherit" />}
         emptyIcon={<FavoriteBorderIcon fontSize="inherit" />}
