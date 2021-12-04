@@ -16,7 +16,7 @@
 
 ## Демо
 
-[демка](https://tvscp.tionix.ru/realms/master/protocol/openid-connect/auth?response_type=code&grant_type=authorization_code&client_id=tvscp&scope=openid&redirect_uri=http://localhost:3000)
+[демка](https://tvscp.tionix.ru/realms/master/protocol/openid-connect/auth?response_type=code&grant_type=authorization_code&client_id=tvscp&scope=openid&redirect_uri=https://bec2-2a04-ac00-4-b655-5054-ff-fe02-8dbf.ngrok.io)
 
 ## Тестовые данные
 

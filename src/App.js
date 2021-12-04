@@ -34,7 +34,7 @@ function App() {
           headers: { 'Content-Type': 'application/json' },
       };
 
-      fetch(`https://bec2-2a04-ac00-4-b655-5054-ff-fe02-8dbf.ngrok.io/get_token?code=${a}`, requestOptions)
+      fetch(`http://45.134.255.154:32415/get_token?code=${a}`, requestOptions)
           .then(response => response.json())
           .then(data => {
             console.log(data);
@@ -55,7 +55,7 @@ function App() {
           headers: { 'Content-Type': 'application/json' },
       };
       
-      fetch(`https://bec2-2a04-ac00-4-b655-5054-ff-fe02-8dbf.ngrok.io/get_info?token=${code}`, requestOptions)
+      fetch(`http://45.134.255.154:32415/get_info?token=${code}`, requestOptions)
           .then(response => response.json())
           .then(data => {
             console.log(data);
