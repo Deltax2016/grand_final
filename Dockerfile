@@ -1,19 +1,11 @@
-FROM node:13.12.0-alpine
-
-# set working directory
+FROM node:14.8.0-stretch as build
+RUN mkdir /app
+COPY . /app
 WORKDIR /app
+RUN npm install \
+    && npm run-script build \
+    && ls -l
 
-# add `/app/node_modules/.bin` to $PATH
-ENV PATH /app/node_modules/.bin:$PATH
-
-# install app dependencies
-COPY package.json ./
-COPY package-lock.json ./
-RUN npm install --silent
-RUN npm install react-scripts@3.4.1 -g --silent
-
-# add app
-COPY . ./
-
-# start app
-CMD ["npm", "start"]
+# Final stage for creating the final Docker image
+FROM nginx:1.19-alpine as final
+COPY --from=build /app/build/ /var/www/html
