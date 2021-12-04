@@ -12,7 +12,7 @@
 
 ## Билд
 
-### `npm run build`
+### `npm run-script build`
 
 ## Демо
 
