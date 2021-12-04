@@ -21,14 +21,14 @@
 ## Тестовые данные
 
 Логин / Пароль 
-medvedeva / Soi2eic7ki 
-akinfeev / Au2gohr8wa 
-ovechkin / jau4maeQuu 
-tinkov / Tavah9phaV 
-naumova / ieh5ooCh3a 
-ogandzhaniants / mo5olaCh2v 
-bukhman / Pie6heey9o 
-dud / Choo4quoo3 
-kartynnik / ohDik2hi0i 
-perelman / Vaeraemey2
++ medvedeva / Soi2eic7ki 
++ akinfeev / Au2gohr8wa 
++ ovechkin / jau4maeQuu 
++ tinkov / Tavah9phaV 
++ naumova / ieh5ooCh3a 
++ ogandzhaniants / mo5olaCh2v 
++ bukhman / Pie6heey9o 
++ dud / Choo4quoo3 
++ kartynnik / ohDik2hi0i 
++ perelman / Vaeraemey2
 
